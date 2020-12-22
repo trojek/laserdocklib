@@ -1,12 +1,11 @@
-#include "LaserdockDeviceManager.h"
-#include "LaserdockDeviceManager_p.h"
+#include "laserdocklib/LaserdockDeviceManager.h"
 
 #include <cstdio>
 #include <vector>
 
-#include "libusb/libusb.h"
+#include <libusb/libusb.h>
 
-#include "LaserdockDevice.h"
+#include "laserdocklib/LaserdockDevice.h"
 #include "LaserdockDeviceManager_p.h"
 
 #define LASERDOCK_VIN 0x1fc9
@@ -28,7 +27,8 @@ std::vector<std::unique_ptr<LaserdockDevice> > LaserdockDeviceManager::get_laser
 void LaserdockDeviceManager::print_laserdock_devices() {
     std::vector<std::unique_ptr<LaserdockDevice> > devices = get_laserdock_devices();
     for(const std::unique_ptr<LaserdockDevice> &device : devices) {
-        device->print();
+        char* d;
+        printf("%s\n", device->sdescription(d, 64));
     }
 }
 

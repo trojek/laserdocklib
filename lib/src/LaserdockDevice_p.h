@@ -5,6 +5,7 @@
 #ifndef LASERDOCKLIB_LASERDOCKDEVICEPRIVATE_H
 #define LASERDOCKLIB_LASERDOCKDEVICEPRIVATE_H
 
+#include <string>
 
 #ifdef ANDROID
 class _jobject;
@@ -12,7 +13,7 @@ typedef _jobject* jobject;
 #endif
 
 class LaserdockDevice;
-class libusb_device;
+struct libusb_device;
 
 class LaserdockDevicePrivate {
 public:
@@ -34,9 +35,11 @@ public:
     void initialize();
     void release();
     void print() const;
+    int sdescription(char* buff, int bufferSize);
 
 private:
     LaserdockDevice * q;
+    int _description(char* buffer, int bufferSize);
 };
 
 
