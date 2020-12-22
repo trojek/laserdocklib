@@ -19,6 +19,9 @@ target_sources(${PROJECT_NAME} PRIVATE
     ${SRCDIR}/LaserdockDevice_p.h
     ${SRCDIR}/LaserdockDeviceManager.cpp
     ${SRCDIR}/LaserdockDeviceManager_p.h
+    ${SRCDIR}/LaserdockNode.cpp
+    ${SRCDIR}/LaserdockNode.h
+   
     )
 
 if(ANDROID)
@@ -55,6 +58,7 @@ if(NOT WIN32)
         ${INCDIR}/LaserdockDevice.h
         ${INCDIR}/LaserdockDeviceManager.h
         ${INCDIR}/LaserdockSample.h
+        ${INCDIR}/LaserdockNode.h
         )
 
     install(TARGETS laserdocklib
